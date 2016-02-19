@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'users' do
+    subject(:user) { create(:user) }
+
+    it { should have_many(:apps_users) }
+    it { should have_many(:apps).through(:apps_users) }
+  end
 end
